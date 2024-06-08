@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <title>MoveABox Calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 20px;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h1 {
+        color: #2d4193;
+        text-align: center;
+      }
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      label {
+        color: #a066cb;
+      }
+
+      input[type="text"],
+      select {
+        padding: 10px;
+        margin: 5px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        width: 100%;
+      }
+      input[type="submit"],
+      input[type="button"] {
+        background-color: #2d4193;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 10px;
+      }
+      input[type="button"] {
+        background-color: #a066cb;
+      }
+      .whatsappp {
+        background-color: #2fc466;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+      .phone {
+        background-color: #4073c4;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        font-size: 12px;
+        cursor: pointer;
+        border-radius: 4px;
+      }
+
+      .price-container {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+      }
+      .price-card {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        flex: 1;
+        margin: 0 10px;
+      }
+      .price-card h2 {
+        color: #2d4193;
+        margin-bottom: 10px;
+      }
+      .price-card p {
+        font-size: 24px;
+        font-weight: bold;
+        color: #a066cb;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>MoveABox Calculator</h1>
+    <form action="" method="post">
+      <label for="weight">Weight (KGs)</label>
+      <input
+        type="text"
+        id="weight"
+        name="weight"
+        placeholder="Enter Weight (KGs)"
+      />
+      <br /><br />
+
+      <label for="num_boxes">Number of Box(es)</label>
+      <select id="num_boxes" name="num_boxes">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      <br /><br />
+
+      <div id="box_dimensions"></div>
+      <br />
+
+      <label for="destination">Destination State</label>
+      <input
+        type="text"
+        id="destination"
+        name="destination"
+        placeholder="Enter Destination State"
+      />
+      <br /><br />
+
+      <label for="packaging">Do you need Packaging?</label>
+      <select id="packaging" name="packaging">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <br /><br />
+
+      <label for="pickup">Do you need Pickup?</label>
+      <select id="pickup" name="pickup">
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+      </select>
+      <br /><br />
+
+      <input type="submit" value="Submit" />
+      <a href="https://zfrmz.com/FacUy0npOPlrcnuQOYOh" target="_blank">
+        <input type="button" value="Book a Service"
+      /></a>
+      <a href="https://wa.me/919019534085">
+        <button class="whatsappp" type="button">
+          <i class="fa fa-whatsapp"></i>Whatsapp
+        </button>
+      </a>
+      <a href="tel:+919019534085">
+        <button class="phone" type="button">
+          <i class="fa fa-phone"></i>Call Us
+        </button>
+      </a>
+    </form>
+
+    <div class="price-container">
+      {% if air_price %}
+      <div class="price-card">
+        <h2>Air Price</h2>
+        <p>{{ air_price }}</p>
+      </div>
+      {% endif %} {% if surface_price %}
+      <div class="price-card">
+        <h2>Surface Price</h2>
+        <p>{{ surface_price }}</p>
+      </div>
+      {% endif %}
+    </div>
+
+    <script>
+      // Function to generate input fields for box dimensions
+      function generateBoxDimensions(numBoxes) {
+        const boxDimensionsContainer =
+          document.getElementById("box_dimensions");
+        boxDimensionsContainer.innerHTML = "";
+
+        for (let i = 1; i <= numBoxes; i++) {
+          const boxDiv = document.createElement("div");
+          boxDiv.innerHTML = `
+                    <label for="length_${i}">Box ${i}:</label>
+                    <input type="text" id="length_${i}" name="length_${i}" placeholder="Length (CMs)">
+                    <input type="text" id="breadth_${i}" name="breadth_${i}" placeholder="Breadth (CMs)">
+                    <input type="text" id="width_${i}" name="width_${i}" placeholder="Width (CMs)">
+                    <br><br>
+                `;
+          boxDimensionsContainer.appendChild(boxDiv);
+        }
+      }
+
+      // Event listener for the number of boxes dropdown
+      const numBoxesDropdown = document.getElementById("num_boxes");
+      numBoxesDropdown.addEventListener("change", function () {
+        generateBoxDimensions(this.value);
+      });
+
+      // Generate initial box dimensions
+      generateBoxDimensions(1);
+    </script>
+  </body>
+</html>
