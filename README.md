@@ -16,8 +16,8 @@ pip install Flask
 ## 📺 Demo
 
 <div align="center">
-    <img width="300" alt="1" src="https://github.com/AaronProbha18/Image-compressor/assets/154875295/898730ea-c024-49c1-a3fe-436ea0effa3c" style="display: inline-block;"><br>
-    <img width="300" alt="2" src="https://github.com/AaronProbha18/Image-compressor/assets/154875295/eaacfbdf-f137-4f8c-b4c0-73ce2e5c7f70" style="display: inline-block;"><br>
+    <img width="300" alt="1" src="https://github.com/AaronProbha18/Image-compressor/assets/154875295/898730ea-c024-49c1-a3fe-436ea0effa3c" style="display: inline-block;">
+    <img width="300" alt="2" src="https://github.com/AaronProbha18/Image-compressor/assets/154875295/eaacfbdf-f137-4f8c-b4c0-73ce2e5c7f70" style="display: inline-block;">
     <img width="300" alt="3" src="https://github.com/AaronProbha18/Image-compressor/assets/154875295/898730ea-c024-49c1-a3fe-436ea0effa3c" style="display: inline-block;"><br>
 </div>
 
